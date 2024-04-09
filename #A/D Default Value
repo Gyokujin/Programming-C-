@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+void Compute(int x, int y = 1, int z = 3) 
+{
+	cout << (x * y * z) << endl;
+}
+
+int main()
+{
+	Compute(3, 3, 3);
+	Compute(3, 3); // 매개변수는 가장 앞에서부터 센다
+	Compute(3);
+}
