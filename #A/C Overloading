@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int Add(int a, int b) 
+{
+    return a + b;
+}
+
+int Add(float a, int b) 
+{
+    return a + b;
+}
+
+int main()
+{
+    int i = 1;
+    int j = 3;
+
+    float x = 1.5;
+    float y = 0.2;
+
+    cout << i << " + " << j << " = " << Add(i, j) << endl; // 이름이 같은 함수라도 함수의 매개변수의 자료형이나 개수가 다르다면 별개의 함수로 구분한다.
+    cout << x << " + " << y << " = " << Add(x, y) << endl;
+}
