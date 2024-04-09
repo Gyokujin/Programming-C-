@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+namespace A_Range 
+{
+	int score = 100;
+	int Func(int s)
+	{
+		return s / 5;
+	}
+}
+
+namespace B_Range
+{
+	int score = 200;
+	int Func(int s)
+	{
+		return s / 10;
+	}
+}
+
+int main()
+{
+	int score = 300;
+
+	cout << "main score : " << score << endl;
+	cout << "A_Range score : " << A_Range::score << endl;
+	cout << "B_Range score : " << B_Range::score << endl;
+
+	cout << "A_Range score Func : " << A_Range::Func(score) << endl;
+	cout << "B_Range score Func : " << B_Range::Func(score) << endl;
+}
