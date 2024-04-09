@@ -7,6 +7,10 @@ int main()
 {
 	int val = 10;
 	val += 1;
-	cout << val;
+	cout << val << endl;
+
+	::val += 1; // 전역변수인 val에 접근한다.
+	cout << ::val << endl;
+
 	return 0;
 }
