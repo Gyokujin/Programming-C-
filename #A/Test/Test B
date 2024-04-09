@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+// 2개의 정수를 입력해서, 입력된 2개 정수 사이에 존재하는 정수들의 합을 출력하라.
+int main()
+{
+    int a;
+    int b;
+    int sum = 0;
+
+    cin >> a >> b;
+    
+    if (a > b)
+    {
+        int temp = 0;
+        temp = a;
+        a = b;
+        b = temp;
+    }
+
+    for (int i = a + 1; i < b; i++)
+    {
+        sum += i;
+        cout << i << "   ";
+    }
+
+    cout << "\n";
+    cout << a << "부터" << b << "사이의 정수들의 합 : " << sum;
+}
