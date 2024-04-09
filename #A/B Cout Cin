@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+void main()
+{
+	string name;
+
+	cout << "Hello C++\n"; // 출력
+	cin >> name; // 입력
+
+	cout << "입력한 문자열 : " << name;
+}
