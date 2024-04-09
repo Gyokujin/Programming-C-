@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+// 오버로딩 함수 '"'void function()'를 만들어 보자. 입력 받을 인자의 조건은 아래와 같다.
+// 1) 인자가 없는 경우. 2) 문자형 자료 하나를 인자로 받는 경우. 3) 정수형 자료 두 개를 인자로 받는 경우
+// 함수 호출은 이렇게 이루어지도록 한다.
+// function();
+// function('a');
+// function(12, 13);
+
+void Function()
+{
+	cout << "인자가 없는 함수 호출\n";
+}
+
+void Function(char c)
+{
+	cout << "문자형 인자 1개 함수 호출\n";
+}
+
+void Function(int a, int b)
+{
+	cout << "정수형 자료 2개 함수 호출\n";
+}
+
+int main()
+{
+	Function();
+	Function('a');
+	Function(12, 13);
+}
