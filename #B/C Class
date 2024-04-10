@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+class Bullet
+{
+public:
+	int speed = 3;
+	int power = 5;
+	int damage = 4;
+
+	int GetDamage()
+	{
+		damage++;
+		return damage;
+	}
+};
+
+int main()
+{
+	Bullet bullet;
+	cout << "Speed : " << bullet.speed << "Damage : " << bullet.damage << endl;
+
+	int damage = bullet.GetDamage();
+	cout << "UP Damage : " << damage << endl;
+}
