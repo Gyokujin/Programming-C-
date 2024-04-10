@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+bool IsPositive(int i)
+{
+	if (i < 0)
+		return false;
+	else
+		return true;
+}
+
+int main()
+{
+	int num;
+	bool result;
+
+	cout << "숫자 입력 ";
+	cin >> num;
+
+	result = IsPositive(num);
+
+	if (result)
+		printf("Positive Number \n");
+	else
+		printf("Negative Number \n");
+
+	return 0;
+}
