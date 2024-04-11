@@ -1,0 +1,29 @@
+#include <iostream>
+#include <random>
+using namespace std;
+
+// 두대의 자동차를 생성하여서 속도를 0에서 199사이의 난수로 설정. 속도가 빠른 자동차가 무조건 경주에서 이긴다고 가정
+int main()
+{
+    random_device random;
+    mt19937 gen(random());
+    uniform_int_distribution<int> randomDis(0, 199);
+
+    int carSpeedA = 0;
+    int carSpeedB = 0;
+
+    carSpeedA = randomDis(gen);
+    carSpeedB = randomDis(gen);
+
+    cout << "첫번째 숫자는 " << carSpeedA << endl;
+    cout << "두번째 숫자는 " << carSpeedB << endl;
+
+    if (carSpeedA > carSpeedB)
+    {
+        cout << "\n첫번째 차가 더 빠릅니다." << endl;
+    }
+    else
+    {
+        cout << "\n두번째 차가 더 빠릅니다." << endl;
+    }
+}
