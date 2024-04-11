@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+// 두대의 자동차를 생성하여서 속도를 0에서 199사이의 난수로 설정. 속도가 빠른 자동차가 무조건 경주에서 이긴다고 가정
+class Car
+{
+private:
+	int speed;
+	int gear;
+	string color;
+
+	int accelPower;
+	int breakPower;
+
+public:
+	void SetData(int s, int g, string c, int aP, int bP)
+	{
+		speed = s;
+		gear = g;
+		color = c;
+		accelPower = aP;
+		breakPower = bP;
+	}
+
+	int Accel()
+	{
+		speed = speed + gear * accelPower;
+		return speed;
+	}
+
+	int ShowSpeed() 
+	{
+		return speed;
+	}
+};
+
+int main()
+{
+	Car car1, car2;
+	
+	car1.SetData(4, 6, "Red", 3, 2);
+	int speedA = car1.ShowSpeed();
+	cout << speedA << endl;
+	
+	car2.SetData(5, 2, "Blue", 2, 4);
+	int speedB = car2.ShowSpeed();
+	cout << speedB << endl;
+
+	if (speedA >= speedB)
+	{
+		cout << "\n기본속도는 Car1이 스피드 " << speedA << "로 더 빠릅니다.\n" << endl;
+	}
+	else
+	{
+		cout << "\n기본속도는 Car2이 스피드 " << speedB << "로 더 빠릅니다.\n" << endl;
+	}
+
+	speedA = car1.Accel();
+	speedB = car2.Accel();
+
+	cout << speedA << endl;
+	cout << speedB << endl;
+
+	if (speedA >= speedB)
+	{
+		cout << "\n가속도는 Car1이 스피드 " << speedA << "로 더 빠릅니다.\n" << endl;
+	}
+	else
+	{
+		cout << "\n가속도는 Car2이 스피드 " << speedB << "로 더 빠릅니다.\n" << endl;
+	}
+}
