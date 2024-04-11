@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+// 계좌를 클래스로 생성하고 10000원을 입금, 8000원을 출금하여 잔고를 출력하는 코드를 작성하라.
+class BankAccount 
+{
+private:
+    int accountNumber;
+    string name;
+    int amount;
+
+public:
+    void SetBalance(int curNumber, string curName, int curAmount)
+    {
+        accountNumber = curNumber;
+        name = curName;
+        amount = curAmount;
+        cout << "계좌번호 : " << accountNumber << endl << "예금주 : " << name << endl << "잔고 : " << amount << endl;
+    }
+
+    int GetBalance()
+    {
+        return amount;
+    }
+
+    void Deposit(int curAmount) // 예금
+    {
+        amount += curAmount;
+    }
+
+    void WithDraw(int curAmount) // 인출
+    {
+        amount -= curAmount;
+    }
+
+    void ShowBalance()
+    {
+        cout << "현재 잔고는 " << amount << "입니다." << endl;
+    }
+};
+
+int main()
+{
+    BankAccount bank;
+    cout << "계좌를 생성합니다.\n" << endl;
+    bank.SetBalance(01112426, "홍길동", 0);
+
+    cout << "\n10000원을 입금합니다." << endl;
+    bank.Deposit(10000);
+    bank.ShowBalance();
+
+    cout << "\n8000원을 출금합니다." << endl;
+    bank.WithDraw(8000);
+    bank.ShowBalance();
+}
