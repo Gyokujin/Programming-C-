@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+class Product 
+{
+private:
+	int id;
+	string name;
+	int price;
+
+public:
+	void Input(int i, string n, int p)
+	{
+		id = i;
+		name = n;
+		price = p;
+	}
+
+	void Print()
+	{
+		cout << "제품번호 : " << id << endl << "제품이름 : " << name << endl << "가격 : " << price << endl << endl;
+	}
+
+	bool IsCheaper(Product one)
+	{
+		if (price < one.price)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	string GetName()
+	{
+		return name;
+	}
+};
+
+int main()
+{
+	Product productA;
+	Product productB;
+
+	productA.Input(1, "발칸 300", 500);
+	productB.Input(2, "건담 로봇", 1500);
+
+	productA.Print();
+	productB.Print();
+
+	bool isCheap = productA.IsCheaper(productB);
+
+	if (isCheap)
+	{
+		cout << productA.GetName() << "이 " << productB.GetName() << "보다 쌉니다." << endl;
+	}
+	else
+	{
+		cout << productB.GetName() << "이 " << productA.GetName() << "보다 쌉니다." << endl;
+	}
+}
