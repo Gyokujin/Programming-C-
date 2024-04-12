@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+// 사과 가게 클래스인 FruitSeller를 생성하고 사과의 가격 보유한 개수, 금액을 private, 초기화와 판매, 정보의 공개를 public 함수로 하여 작성하라.
+class FruitSeller 
+{
+private:
+    int price; // 사과 개당 가격
+    int count; // 사과 개수
+    int balance; // 잔고
+
+public:
+    void Init(int p, int c, int b) 
+    {
+        price = p;
+        count = c;
+        balance = b;
+    }
+
+    void Sell(int p)
+    {
+        int sellCount = p / price;
+        count -= sellCount;
+        balance += sellCount * price;
+
+        cout << p << "원으로 사과" << sellCount << "개를 살 수 있으며 " << sellCount * price << "원을 냈습니다. " << endl;
+    }
+
+    void Show()
+    {
+        cout << "남은 사과의 개수는 " << count << "개. 잔고는 " << balance << "원입니다." << endl;
+    }
+};
+
+int main()
+{
+    FruitSeller fruitSeller;
+    fruitSeller.Init(1500, 500, 0);
+
+    fruitSeller.Sell(50000);
+    fruitSeller.Show();
+    cout << "\n";
+
+    fruitSeller.Sell(43000);
+    fruitSeller.Show();
+}
