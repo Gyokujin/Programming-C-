@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+// 이름, 전화번호, 나이
+// 이상의 자료를 지니는 클래스를 구성한 뒤 ("KIM", "013-333-5555", 22)의 자료를 지니는 객체를 생성해 보자
+
+class Info
+{
+private:
+	string name;
+	string phoneNumber;
+	int age;
+
+public:
+	Info()
+	{
+		name = "KIM";
+		phoneNumber = "013-333-5555";
+		age = 22;
+	}
+
+	void ShowData()
+	{
+		cout << "이름 : " << name << endl << "전화번호 : " << phoneNumber << endl << "나이 : " << age << endl;
+	}
+};
+
+int main()
+{
+	Info info;
+	info.ShowData();
+}
