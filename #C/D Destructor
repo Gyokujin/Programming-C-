@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+class Person
+{
+private:
+	string name;
+	string phone;
+	int age;
+
+public:
+	Person(string _name, string _phone, int _age)
+	{
+		name = _name;
+		phone = _phone;
+		age = _age;
+	}
+
+	~Person() // 소멸자 : 객체가 소멸되는 시점에서 실행되는 함수
+	{
+		cout << "\n객체가 소멸됩니다." << endl;
+	}
+
+	void ShowData()
+	{
+		cout << "이름 : " << name << endl;
+		cout << "휴대폰 번호 : " << phone << endl;
+		cout << "나이 : " << age << endl;
+	}
+};
+
+int main()
+{
+	Person persone("홍길동", "010-000-0000", 25);
+	persone.ShowData();
+}
