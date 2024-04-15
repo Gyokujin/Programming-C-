@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>;
+using namespace std;
+
+// NameCard 클래스를 구성해 보자. 이 클래스에는 '성명', '회사 이름', '전화 번호', '직급' 내용이 포함 되어야 한다. 이 중, 직급 외에는 문자열 형태로 저장하되, 길이에 맞춰서 메모리에 동적 할당한다. 직급은 int형 멤버 변수를 선언해 저장하되, 아래와 같이 enum 선언을 활용한다. 
+// Enum{CLERK, SENIOR, ASSIST, MANAGER}; 사원, 주임, 대리, 과장
+
+namespace COMP_POS
+{
+    enum Comp_Pos
+    {
+        CLERK, SENIOR, ASSIST, MANAGER
+    };
+
+    void ShowGrade(int grade)
+    {
+        switch (grade)
+        {
+            case 0:
+                cout << "사원" << endl;
+                break;
+
+            case 1:
+                cout << "주임" << endl;
+                break;
+
+            case 2:
+                cout << "대리" << endl;
+                break;
+
+            case 3:
+                cout << "과장" << endl;
+                break;
+        }
+    }
+}
+
+class NameCard
+{
+private:
+    string manName;
+    string companyName;
+    string phoneNumber;
+    int grade;
+
+public:
+    NameCard(string manName, string companyName, string phoneNumber, int grade)
+    {
+        this->manName = manName;
+        this->companyName = companyName;
+        this->phoneNumber = phoneNumber;
+        this->grade = grade;
+    }
+
+    void ShowNameCardInfo()
+    {
+        cout << "성명 : " << manName << endl;
+        cout << "회사 이름 : " << companyName << endl;
+        cout << "전화 번호 : " << phoneNumber << endl;
+        cout << "직급 : ";
+        COMP_POS::ShowGrade(grade);
+        cout << endl;
+    }
+};
+
+int main()
+{
+    NameCard manclerk("Lee", "ABCEng", "010 - 1111 - 2222", COMP_POS::CLERK);
+    NameCard manSENIOR ("Hong", "OrangeEng", "010 - 3333 - 4444", COMP_POS::SENIOR);
+    NameCard manAssist ("Kim", "SoGoodComp", "010 - 5555 - 6666", COMP_POS::ASSIST);
+    manclerk.ShowNameCardInfo();
+    manSENIOR.ShowNameCardInfo();
+    manAssist.ShowNameCardInfo();
+}
