@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+class AAA
+{
+public:
+	int x;
+
+	AAA()
+	{
+		cout << "AAA() 호출 - 기본 생성자" << endl;
+		x = 0;
+	}
+
+	AAA(int i)
+	{
+		cout << "AAA(int i) 호출 - 재정의된 생성자" << endl;
+		x = 1;
+	}
+
+	AAA(const AAA& a)
+	{
+		cout << "AAA(const AAA& a) 호출 - 복사 생성자" << endl;
+		x = 2;
+	}
+};
+
+int main()
+{
+	AAA obj1;
+	AAA obj2(10);
+	AAA obj3(obj2);
+
+	cout << "obj3: " << obj3.x << endl;
+	return 0;
+}
