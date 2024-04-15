@@ -1,0 +1,63 @@
+#include <iostream>
+#include <random>
+using namespace std;
+
+// 정수 2개 변수를 자료로 지니는 클래스를 구성하고 객체를 5개의 배열로 생성한 뒤, 각각의 객체에 임의의 2개 값을 넣어 초기화 해 보자.
+class Point 
+{
+private:
+    int x, y;
+
+public:
+    Point()
+    {
+        cout << "생성자 호출" << endl;
+        x = y = 0;
+    }
+
+    Point(int _x, int _y)
+    {
+        x = _x;
+        y = _y;
+    }
+
+    int GetX()
+    {
+        return x;
+    }
+
+    int GetY()
+    {
+        return y;
+    }
+
+    void SetX(int _x)
+    {
+        x = _x;
+    }
+
+    void SetY(int _y)
+    {
+        y = _y;
+    }
+};
+
+int main()
+{
+    Point points[5];
+    random_device random;
+    mt19937 gen(random());
+    uniform_int_distribution<int> randomDis(-10, 10);
+
+    for (int i = 0; i < 5; i++)
+    {
+        points[i].SetX(randomDis(gen));
+        points[i].SetY(randomDis(gen));
+    }
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << i + 1 << "번째 좌표는 ";
+        cout << "(" << points[i].GetX() << ", " << points[i].GetY() << ")" << endl;
+    }
+}
