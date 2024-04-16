@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+class Animal 
+{
+protected:
+    string name;
+    int age;
+
+public:
+    void Speak()
+    {
+        cout << "동물이 소리를 냅니다." << endl;
+    }
+};
+
+class Dog : public Animal
+{
+public:
+    Dog()
+    {
+        name = "개";
+    }
+
+    void Speak() // 오버라이드 : 상속받은 클래스가 부모 클래스와 같은 이름의 함수를 선언할시. 기존의 함수 내용을 덮어 씌운다. (오버라이딩된 함수가 있다면 자식 클래스. 없다면 부모 클래스의 함수가 실행된다.)
+    {
+        cout << name << " : 멍멍" << endl;
+    }
+};
+
+class Cat : public Animal
+{
+public:
+    Cat()
+    {
+        name = "고양이";
+    }
+
+    void Speak()
+    {
+        cout << name << " : 야옹" << endl;
+    }
+};
+
+int main()
+{
+    Animal animal;
+    animal.Speak();
+
+    Dog dog;
+    dog.Speak();
+
+    Cat cat;
+    cat.Speak();
+}
