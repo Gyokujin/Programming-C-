@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+// Student 클래스를 메인 함수 내에서 아래와 같이 3개의 객체 포인터 배열로 선언하여 cin으로 내용을 입력한 뒤 전체 내용을 출력하라. Student * student[3];
+class Student
+{
+private:
+    string name;
+    int age;
+    int studentID;
+
+public:
+    Student(string _name, int _age, int _studentID)
+    {
+        name = _name;
+        age = _age;
+        studentID = _studentID;
+    }
+
+    void GetInfo()
+    {
+        cout << "이름 : " << name << endl;
+        cout << "나이 : " << age << endl;
+        cout << "학번 : " << studentID << endl << endl;
+    }
+};
+
+int main()
+{
+    Student* students[3];
+    string name;
+    int age, studentID;
+    for (int i = 0; i < 3; i++)
+    {
+        cout << i + 1 << "번째 학생의 정보를 입력합니다." << endl;
+
+        cout << "이름을 입력하세요." << endl;
+        cin >> name;
+
+        cout << "나이를 입력하세요." << endl;
+        cin >> age;
+
+        cout << "번호를 입력하세요." << endl;
+        cin >> studentID;
+
+        students[i] = new Student(name, age, studentID);
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        students[i] -> GetInfo();
+    }
+}
