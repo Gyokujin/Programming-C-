@@ -1,0 +1,164 @@
+#include <iostream>
+using namespace std;
+
+class Student
+{
+private:
+	string name; // 이름
+	int id; // 학번
+	string department; // 전공
+	int grade; // 학년
+	int credit; // 이수학점
+
+public:
+	Student(string _name = "noname", int _id = 0, string _department = "default", int _grade = 1, int _credit = 0) : name(_name), id(_id), department(_department), grade(_grade), credit(_credit) // 생성자
+	{
+
+	}
+
+	string GetName()
+	{
+		return name;
+	}
+
+	void SetName(string _name)
+	{
+		name = name;
+	}
+
+	int GetID()
+	{
+		return id;
+	}
+
+	void SetID(int _id)
+	{
+		id = _id;
+	}
+
+	string GetDepartment()
+	{
+		return department;
+	}
+
+	void SetDepartment(string _department)
+	{
+		department = _department;
+	}
+
+	int GetGrade()
+	{
+		return grade;
+	}
+
+	void SetGrade(int _grade)
+	{
+		grade = _grade;
+	}
+
+	int GetCredit()
+	{
+		return credit;
+	}
+
+	void SetCredit(int _credit)
+	{
+		credit = _credit;
+	}
+};
+
+class UnderGraduate : Student
+{
+private:
+	string club; // 소속 동아리
+
+public:
+	UnderGraduate(string _name = "noname", int _id = 0, string _department = "default", int _grade = 1, int _credit = 0, string _club = "default") : Student(_name, _id, _department, _grade, _credit), club(_club) // 생성자
+	{
+		// club = _club;
+	}
+
+	string GetClub()
+	{
+		return club;
+	}
+
+	void SetClub(string _club)
+	{
+		club = _club;
+	}
+
+	void Print()
+	{
+		cout << "---------------------------------------" << endl;
+		cout << "이     름 : " << GetName() << endl;
+		cout << "학     번 : " << GetID() << endl;
+		cout << "소속학과 : " << GetDepartment() << endl;
+		cout << "학     년 : " << GetGrade() << endl;
+		cout << "이수학점 : " << GetCredit() << endl;
+		cout << "동아리명 : " << GetClub() << endl;
+		cout << "---------------------------------------" << endl;
+	}
+};
+
+class Graduate : Student
+{
+private:
+	bool assistant; // true : 연구조교, false : 교육조교
+	double scholarship; // 장학비율
+
+public:
+	Graduate(string _name = "noname", int _id = 0, string _department = "default", int _grade = 1, int _credit = 0, bool _assistant = false, double _scholarship = 0) : Student(_name, _id, _department, _grade, _credit), assistant(_assistant), scholarship(_scholarship) // 생성자
+	{
+
+	}
+
+	bool GetAssistant()
+	{
+		return assistant;
+	}
+
+	void SetAssistant(bool _assistant)
+	{
+		assistant = _assistant;
+	}
+
+	double GetScholarship()
+	{
+		return scholarship;
+	}
+
+	void SetScholarship(double _scholarship)
+	{
+		scholarship = _scholarship;
+	}
+
+	void Print()
+	{
+		cout << "---------------------------------------" << endl;
+		cout << "이     름 : " << GetName() << endl;
+		cout << "학     번 : " << GetID() << endl;
+		cout << "소속학과 : " << GetDepartment() << endl;
+		cout << "학     년 : " << GetGrade() << endl;
+		cout << "이수학점 : " << GetCredit() << endl;
+		cout << "조교유형 : ";
+		
+		if (assistant)
+		{
+			cout << "연구조교" << endl;
+		}
+		else
+		{
+			cout << "교육조교" << endl;
+		}
+
+		cout << "장학비율 : " << GetScholarship() << endl;
+		cout << "---------------------------------------" << endl;
+	}
+};
+
+int main()
+{
+	UnderGraduate underGraduate("홍길동", 2012, "회화과", 2, 2.5f, "AFK");
+	underGraduate.Print();
+}
