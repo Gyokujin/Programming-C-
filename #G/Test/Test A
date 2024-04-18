@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+
+// Human 클래스와 이에서 상속되는 Student 클래스를 구성하고 프로그램을 작성하라.
+class Human 
+{
+private:
+	int age;
+	string name;
+	string hobby;
+
+public:
+	Human(int _age, string _name, string _hobby) : age(_age), name(_name), hobby(_hobby)
+	{
+		age = _age;
+		name = _name;
+		hobby = _hobby;
+	}
+
+	void GetUp()
+	{
+		cout << "기상" << endl;
+	}
+
+	void Sleep()
+	{
+		cout << "취침" << endl;
+	}
+
+	void Eat()
+	{
+		cout << "식사" << endl;
+	}
+
+	void Study()
+	{
+		cout << "공부" << endl;
+	}
+
+	void ShowInfo()
+	{
+		cout << "이름 : " << name << endl;
+		cout << "나이 : " << age << endl;
+		cout << "취미 : " << hobby << endl;
+	}
+};
+
+class Student : public Human
+{
+private:
+	string school;
+
+public:
+	Student(int _age, string _name, string _hobby, string _school):Human(_age, _name, _hobby), school(_school){}
+
+	void Study()
+	{
+		cout << "전공공부" << endl;
+	}
+
+	void SchoolInfo()
+	{
+		ShowInfo();
+		cout << "학교 : " << school << endl;
+	}
+};
+
+int main()
+{
+	Student studentA(19, "김철수", "육상", "팡팡고등학교");
+	studentA.SchoolInfo();
+	studentA.GetUp();
+	studentA.Eat();
+	studentA.Study(); // 오버라이딩된 함수를 실행
+	studentA.Sleep();
+
+	Student studentB(5, "신짱구", "부리부리", "팡팡유치원");
+	studentB.SchoolInfo();
+	studentB.Human::Study(); // 자식 클래스의 함수를 직접 찾아서 실행
+}
