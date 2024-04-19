@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+class Shape 
+{
+protected:
+	void virtual Draw()
+	{
+		cout << "형태를 표현합니다." << endl;
+	}
+};
+
+class Square : Shape
+{
+public:
+	void Draw()
+	{
+		cout << "이 도형은 사각형입니다." << endl;
+	}
+};
+
+class Circle : Shape
+{
+public:
+	void Draw()
+	{
+		cout << "이 도형은 원입니다." << endl;
+	}
+};
+
+class Triangle : Shape
+{
+public:
+	void Draw()
+	{
+		cout << "이 도형은 삼각형 입니다." << endl;
+	}
+};
+
+int main()
+{
+	Square().Draw(); // 이처럼 한줄로 줄일수 있다.
+	Circle().Draw();
+	Triangle().Draw();
+
+	/*Square square;
+	square.Draw();
+
+	Circle circle;
+	circle.Draw();
+
+	Triangle triangle;
+	triangle.Draw();*/
+}
