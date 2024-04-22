@@ -1,0 +1,94 @@
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+private:
+	int ID;
+	string name;
+
+public:
+	Employee(int i, string n) : ID(i), name(n) {}
+	string GetName() { return name; }
+	int GetID() { return ID; }
+	virtual int GetPay() { return 0; }
+};
+
+class Temporary : public Employee
+{
+private:
+	int time, pay;
+
+public:
+	Temporary(int i, string n, int t, int p) :Employee(i, n), time(t), pay(p) {}
+
+	int GetPay()
+	{
+		return (time * pay);
+	}
+};
+
+class Permanent : public Employee
+{
+protected:
+	int salary;
+
+public:
+	Permanent(int i, string n, int s) : Employee(i, n), salary(s) {}
+
+	int GetPay()
+	{
+		return (salary / 12);
+	}
+};
+
+class SalesPerson : public Permanent
+{
+private:
+	int sales;
+
+public:
+	SalesPerson(int i, string n, int s, int _sales) :Permanent(i, n, s), sales(_sales) {}
+
+	int GetPay()
+	{
+		return (salary /12 + (sales * 0.02));
+	}
+};
+
+class Department
+{
+private:
+	Employee* emplist[10];
+	int index;
+
+public:
+	Department() : index(0){}
+
+	void AddEmp(Employee* p)
+	{
+		emplist[index++] = p;
+	}
+
+	void PayList()
+	{
+		for (int i = 0; i < index; i++)
+		{
+			cout << "사번:" << emplist[i]->GetID();
+			cout << ", 이름:" << emplist[i]->GetName();
+			cout << ", 급여:" << emplist[i]->GetPay() << endl;
+		}
+	}
+};
+
+int main()
+{
+	Department d; // 부서 생성
+	d.AddEmp(new Permanent(1, "홍길동", 5000));
+	d.AddEmp(new Permanent(2, "박길동", 6000));
+	d.AddEmp(new Permanent(3, "최길동", 7000));
+	d.AddEmp(new Temporary(4, "이길동", 100, 10));
+	d.AddEmp(new Temporary(5, "김길동", 200, 8));
+	d.AddEmp(new SalesPerson(6, "고길동", 7000, 10000));
+	d.PayList();
+}
