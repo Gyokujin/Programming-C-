@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+
+class Account
+{
+protected:
+	int accountNumber; // 계좌번호
+	int balance;
+
+public:
+	Account(int a, int b = 0) :accountNumber(a), balance(b) {}
+
+	void Deposit(double amount)
+	{
+		balance += amount;
+		PrintBalance();
+	}
+
+	bool WithDraw(double amount)
+	{
+		if (balance >= amount)
+		{
+			balance -= amount;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	void PrintBalance()
+	{
+		cout << "현재 잔액은 " << balance << endl;
+	}
+};
+
+class SavingAccount : public Account
+{
+private:
+	double interestRate;
+
+public:
+	SavingAccount(int a, double i) : Account(a), interestRate(i) {}
+
+	void Deposit(double amount)
+	{
+		balance += amount;
+		PrintBalance();
+	}
+
+	void AddInterest()
+	{
+		balance += balance * interestRate;
+	}
+};
+
+class CreditAccount : Account
+{
+private:
+	double creditLimit;
+
+public:
+	CreditAccount(int a, double c) :Account(a), creditLimit(c) {}
+
+	bool WithDraw(double amount) // 신용한도 비교
+	{
+		if (balance - amount >= -creditLimit)
+		{
+			balance -= amount;
+			return true;
+		}
+		else
+		{
+			cout << "신용한도를 초과하여 출금이 불가능합니다." << endl;
+			return false;
+		}
+	}
+};
+
+int main()
+{
+	SavingAccount savingAccount(12344, 0.04);
+	savingAccount.Deposit(50000);
+	savingAccount.AddInterest();
+	savingAccount.PrintBalance();
+}
