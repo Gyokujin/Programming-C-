@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+class Animal
+{
+private:
+    string species;
+    int age;
+
+public:
+    Animal(string s, int a) : species(s), age(a) {}
+
+    virtual void MakeSound() { cout << "이 동물은 어떤 소리도 내지 않습니다." << endl; }
+
+    void PrintInfoe()
+    {
+        cout << "종 : " << species << ", 나이 : " << age << endl;
+    }
+};
+
+class Lion : public Animal
+{
+public:
+    Lion(string s, int a) : Animal(s, a) {}
+
+    void MakeSound() override
+    {
+        cout << "으르렁" << endl;
+    }
+};
+
+class Bird : public Animal
+{
+public:
+    Bird(string s, int a) : Animal(s, a) {}
+
+    void MakeSound() override
+    {
+        cout << "짹짹" << endl;
+    }
+};
+
+class Snake : public Animal
+{
+public:
+    Snake(string s, int a) : Animal(s, a) {}
+
+    void MakeSound() override
+    {
+        cout << "쉬이이" << endl;
+    }
+};
+
+int main()
+{
+    Animal* p[3];
+    p[0] = new Lion("사자", 5);
+    p[1] = new Lion("새", 4);
+    p[2] = new Lion("뱀", 3);
+    
+    for (int i = 0; i < 3; i++)
+    {
+        p[i]->MakeSound();
+        p[i]->PrintInfoe();
+    }
+}
