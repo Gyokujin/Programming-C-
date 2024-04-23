@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+class Vector3D
+{
+private:
+	int x, y, z;
+
+public:
+	Vector3D(int _x = 0, int _y = 0, int _z = 0)
+	{
+		x = _x;
+		y = _y;
+		z = _z;
+	}
+
+	Vector3D operator+(Vector3D *vec)
+	{
+		cout << "전 (" << x << ", " << y << ", " << z << ")" << endl;
+
+		x += vec->x;
+		y += vec->y;
+		z += vec->z;
+
+		cout << "후 (" << x << ", " << y << ", " << z << ")" << endl;
+		return *this;
+	}
+
+	Vector3D operator-(Vector3D* vec)
+	{
+		cout << "전 (" << x << ", " << y << ", " << z << ")" << endl;
+
+		x -= vec->x;
+		y -= vec->y;
+		z -= vec->z;
+
+		cout << "후 (" << x << ", " << y << ", " << z << ")" << endl;
+		return *this;
+	}
+
+	Vector3D operator*(Vector3D* vec)
+	{
+		cout << "전 (" << x << ", " << y << ", " << z << ")" << endl;
+
+		x *= vec->x;
+		y *= vec->y;
+		z *= vec->z;
+
+		cout << "후 (" << x << ", " << y << ", " << z << ")" << endl;
+		return *this;
+	}
+};
+
+int main()
+{
+	Vector3D vec1(2, 2, 2);
+	Vector3D vec2(3, 5, 8);
+	Vector3D vec3(4, 4, 4);
+	Vector3D vec4(5, 5, 5);
+
+	vec1.operator+(&vec2);
+	vec1.operator-(&vec3);
+	vec1.operator*(&vec4);
+}
