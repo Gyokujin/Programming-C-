@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Vector
+{
+private:
+    int x, y;
+
+public:
+    Vector(int _x, int _y)
+    {
+        x = _x;
+        y = _y;
+    };
+
+    void operator+(Vector* vec) 
+    {
+        cout << "전 (" << x << ", " << y << ")" << endl;
+        x += vec->x;
+        y += vec->y;
+        cout << "후 (" << x << ", " << y << ")" << endl;
+    }
+};
+
+int main()
+{
+    Vector vec1(1, 2);
+    Vector vec2(4, 4);
+
+    vec1.operator+(&vec2);
+}
