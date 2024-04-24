@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+template <class T>
+
+int Bigger(T a, T b)
+{
+	return a > b ? a : b;
+}
+
+int main()
+{
+	int a, b;
+
+	cout << "첫번째 숫자를 입력하세요. ";
+	cin >> a;
+
+	cout << "두번째 숫자를 입력하세요. ";
+	cin >> b;
+
+	int bigNum = Bigger(a, b);
+	cout << a << "와 " << b << "중 더 큰 숫자는 " << bigNum << endl;
+}
