@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+template <class T>
+
+T Add(T _numbers[], int size)
+{
+	T sum = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		sum += _numbers[i];
+	}
+
+	return sum;
+}
+
+int main()
+{
+	int numbersA[] = { 21, 10, 6 };
+	int sumA = Add(numbersA, sizeof(numbersA) / sizeof(*numbersA));
+	cout << "총합은 " << sumA << endl;
+
+	float numbersB[] = { 2.1, 4.1, 5.1 };
+	float sumB = Add(numbersB, sizeof(numbersB) / sizeof(*numbersB));
+	cout << "총합은 " << sumB << endl;
+}
