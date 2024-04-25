@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+template <typename T>
+
+class Template
+{
+private:
+	T member;
+
+public:
+	Template(T _member)
+	{
+		member = _member;
+	};
+
+	void Print()
+	{
+		cout << member << endl;
+	}
+};
+
+int main()
+{
+	Template<int> temple(4);
+	temple.Print();
+
+	Template<string> temple2("AQQW");
+	temple2.Print();
+}
