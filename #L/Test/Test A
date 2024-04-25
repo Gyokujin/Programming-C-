@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+template <class T1, class T2>
+
+void Print(T1 t1, T2 t2) 
+{
+	cout << t1 << endl;
+	cout << t2 << endl;
+}
+
+int main()
+{
+	int a = 0;
+	float b = 0;
+
+	cout << "첫번째 정수를 입력하세요. " << endl;
+	cin >> a;
+
+	cout << "두번째 소수를 입력하세요. " << endl;
+	cin >> b;
+
+	Print(a, b);
+}
